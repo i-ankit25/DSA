@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+vector<pair<ll,ll>>v;
+vector <ll>r;
+void factor(ll x)
+{ll i;
+    for(i=1;i<=x;i++)
+    {
+        if(x%i==0)
+        v.push_back(make_pair(i,x/i));
+    }
+}
+void change()
+{
+ll * min,* max,s=r.size(); 
+    min =min_element(r.begin(),r.end());
+    cout<<*min<<" ";
+}
+int main(){
+ll x,l,i;
+ll vis[26];
+vector<pair<ll,ll>>o;
+cin>>x;
+while(x--)
+{  string s;
+cin>>s;
+    for(i=0;i<26;i++)
+    vis[i]=0;
+    l=s.length();
+    for(i=0;i<l;i++)
+    vis[s[i]-65]++;
+    factor(l);
+   for(i=0;i<26;i++)
+    {
+        if(vis[i]!=0)
+        r.push_back(vis[i]);
+    }
+    v=o;
+}
+    return 0;
+}

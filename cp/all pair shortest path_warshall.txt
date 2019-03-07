@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   long long n,f,i,j,k,m=0;
+    cin>>n>>f;
+   long long x[f],y[f],p[f];
+   long long a[n][n];
+    for(i=0;i<n;i++)
+    {for(j=0;j<n;j++)
+    a[i][j]=10000000;
+    }
+    for(i=0;i<f;i++)
+        cin>>x[i]>>y[i]>>p[i];
+    for (i=0;i<f;i++)
+    {
+        a[x[i]-1][y[i]-1]=p[i];
+        a[y[i]-1][x[i]-1]=p[i];
+        
+    }
+    
+    for(k=0;k<n;k++)
+    {
+    for(i=0;i<n;i++)
+      {
+          for(j=0;j<n;j++)
+          {if(i!=j)
+           a[i][j]=min(a[i][j],a[i][k]+a[k][j]); 
+          }
+    }
+    }
+    for(i=0;i<n;i++)
+      {
+          for(j=0;j<n;j++)
+          {
+           if(i!=j && a[i][j]>m)
+           m=a[i][j];
+    }
+      }
+    cout<<m;
+    return 0;
+}
