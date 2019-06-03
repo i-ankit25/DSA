@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a[]={5,2,7,3,1,9,0,6};
+    int k,i,n=8,j,m;
+    for(i=1;i<n;i++)
+    {k=a[i];
+    j=i-1;
+    while(j>=0&&a[j]>k)
+    {
+        a[j+1]=a[j];
+        j--;
+    }
+    a[j+1]=k;
+       for(m=0;m<n;m++)
+            cout<<a[m]<<" ";
+        cout<<endl;
+    }
+    for(i=0;i<n;i++)
+        cout<<a[i]<<" ";
+}

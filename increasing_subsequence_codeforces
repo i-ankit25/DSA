@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(void)
+{
+    long long n,i,p=0,f=0;
+    string s;
+    cin>>n;
+    long long a[n],b=n-1;
+    for(i=0;i<n;i++)
+    cin>>a[i];
+   while(f<=b)
+   { //cout<<p<<endl;
+   //cout<<a[f]<<" "<<a[b]<<endl;
+       if(a[f]<=a[b]&&a[f]>p)
+       {  p=a[f];
+          f++;
+          s=s+'L';
+       }
+      else if(a[f]>=a[b]&&a[b]>p)
+       {  p=a[b];
+          b--;
+          s=s+'R';
+       }
+       else if(a[b]<=a[f]&&a[f]>p)
+       {  p=a[f];
+          f++;
+          s=s+'L';
+       }
+        else if(a[b]>=a[f]&&a[b]>p)
+       {  p=a[b];
+          b--;
+          s=s+'R';
+       }
+       else
+       break;
+   }
+   cout<<s.length()<<endl;
+   cout<<s;
+}
